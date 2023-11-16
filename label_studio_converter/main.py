@@ -6,7 +6,7 @@ import argparse
 from label_studio_converter.converter import Converter, Format, FormatNotSupportedError
 from label_studio_converter.exports.csv import ExportToCSV
 from label_studio_converter.utils import ExpandFullPath
-from label_studio_converter.imports import yolo as import_yolo, coco as import_coco
+from label_studio_converter.imports import yolo as import_yolo, coco as import_coco, yolo_seg as import_yolo_seg
 
 logging.basicConfig(level=logging.INFO)
 
@@ -176,6 +176,16 @@ def imports(args):
             out_type=args.out_type,
             image_root_url=args.image_root_url,
             point_width=args.point_width,
+        )
+    if args.import_format == 'yolo_seg':
+        import_yolo_seg.convert_yolo_seg_to_ls(
+            input_dir=args.input,
+            out_file=args.output,
+            to_name=args.to_name,
+            from_name=args.from_name,
+            out_type=args.out_type,
+            image_root_url=args.image_root_url,
+            image_ext=args.image_ext,
         )
     else:
         raise FormatNotSupportedError()
