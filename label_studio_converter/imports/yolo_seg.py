@@ -112,7 +112,7 @@ def convert_yolo_seg_to_ls(
                 for line in lines:
                     values = line.split()
                     label_id = values[0]
-                    points = [[float(values[i]) * image_width, float(values[i + 1]) * image_height] for i in range(1, len(values), 2)]
+                    points = [[float(values[i]) * 100, float(values[i + 1]) * 100] for i in range(1, len(values), 2)]
                     
                     item = {
                         "id": uuid.uuid4().hex[0:10],
