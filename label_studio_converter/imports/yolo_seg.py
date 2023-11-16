@@ -26,7 +26,7 @@ def convert_yolo_seg_to_ls(
     image_ext='.jpg,.jpeg,.png',
     image_dims: Optional[Tuple[int, int]] = None,
 ):
-    """Convert YOLO Polygons Segmentation labeling to Label Studio JSON
+    """Convert YOLO Semantic Segmentation with Polygons labeling to Label Studio JSON
     :param input_dir: directory with YOLO where images, labels, notes.json are located
     :param out_file: output file with Label Studio JSON tasks
     :param to_name: object name from Label Studio labeling config
