@@ -10,8 +10,8 @@ from urllib.request import (
     pathname2url,
 )  # for converting "+","*", etc. in file paths to appropriate urls
 
-from label_studio_converter.utils import ExpandFullPath
-from label_studio_converter.imports.label_config import generate_label_config
+from utils import ExpandFullPath
+from imports.label_config import generate_label_config
 
 logger = logging.getLogger('root')
 

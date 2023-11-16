@@ -4,8 +4,8 @@ import uuid
 import logging
 from PIL import Image
 
-from label_studio_converter.utils import ExpandFullPath
-from label_studio_converter.imports.label_config import generate_label_config
+from utils import ExpandFullPath
+from imports.label_config import generate_label_config
 
 logger = logging.getLogger('root')
 

@@ -16,9 +16,9 @@ from operator import itemgetter
 from copy import deepcopy
 from PIL import Image
 
-from label_studio_converter.exports import csv2
+from exports import csv2
 
-from label_studio_converter.utils import (
+from utils import (
     parse_config,
     create_tokens_and_tags,
     download,
@@ -31,8 +31,8 @@ from label_studio_converter.utils import (
     get_json_root_type,
     prettify_result,
 )
-from label_studio_converter import brush
-from label_studio_converter.audio import convert_to_asr_json_manifest
+import brush
+from audio import convert_to_asr_json_manifest
 
 logger = logging.getLogger(__name__)
 

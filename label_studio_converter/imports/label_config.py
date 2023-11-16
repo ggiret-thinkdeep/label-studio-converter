@@ -1,4 +1,4 @@
-from label_studio_converter.imports.colors import COLORS
+from imports.colors import COLORS
 
 
 LABELS = """

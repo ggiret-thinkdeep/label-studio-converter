@@ -3,10 +3,10 @@ import io
 import logging
 import argparse
 
-from label_studio_converter.converter import Converter, Format, FormatNotSupportedError
-from label_studio_converter.exports.csv import ExportToCSV
-from label_studio_converter.utils import ExpandFullPath
-from label_studio_converter.imports import yolo as import_yolo, coco as import_coco, yolo_seg as import_yolo_seg
+from converter import Converter, Format, FormatNotSupportedError
+from exports.csv import ExportToCSV
+from utils import ExpandFullPath
+from imports import yolo as import_yolo, coco as import_coco, yolo_seg as import_yolo_seg
 
 logging.basicConfig(level=logging.INFO)
 
@@ -98,6 +98,7 @@ def get_all_args():
     import_format = parser_import.add_subparsers(dest='import_format')
     import_yolo.add_parser(import_format)
     import_coco.add_parser(import_format)
+    import_yolo_seg.add_parser(import_format)
 
     return parser.parse_args()
 

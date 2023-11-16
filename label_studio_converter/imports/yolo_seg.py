@@ -10,8 +10,8 @@ from urllib.request import (
     pathname2url,
 )  # for converting "+","*", etc. in file paths to appropriate urls
 
-from label_studio_converter.utils import ExpandFullPath
-from label_studio_converter.imports.label_config import generate_label_config
+from utils import ExpandFullPath
+from imports.label_config import generate_label_config
 
 logger = logging.getLogger('root')
 
@@ -26,7 +26,7 @@ def convert_yolo_seg_to_ls(
     image_ext='.jpg,.jpeg,.png',
     image_dims: Optional[Tuple[int, int]] = None,
 ):
-    """Convert YOLO Polygones Segmentation labeling to Label Studio JSON
+    """Convert YOLO Polygons Segmentation labeling to Label Studio JSON
     :param input_dir: directory with YOLO where images, labels, notes.json are located
     :param out_file: output file with Label Studio JSON tasks
     :param to_name: object name from Label Studio labeling config
@@ -112,7 +112,7 @@ def convert_yolo_seg_to_ls(
                 for line in lines:
                     values = line.split()
                     label_id = values[0]
-                    points = [[float(values[i]), float(values[i + 1])] for i in range(1, len(values), 2)]
+                    points = [[float(values[i]) * image_width, float(values[i + 1]) * image_height] for i in range(1, len(values), 2)]
                     
                     item = {
                         "id": uuid.uuid4().hex[0:10],
